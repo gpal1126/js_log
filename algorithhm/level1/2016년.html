@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    console.log(solution(1, 12));
+    function solution(a, b){
+        var answer = '';
+
+        let days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];   //요일 배열
+        let dayIdx = new Date('2016/'+a+'/'+b).getDay();    //해당 요일 index 값
+        answer = days.filter((day, i) => {
+            // console.log('i:::'+i);
+            // console.log('dayIdx:::'+dayIdx);
+            return dayIdx === i
+        })[0];
+        //console.log('answer:::'+answer);
+        return answer;
+    }
+</script>

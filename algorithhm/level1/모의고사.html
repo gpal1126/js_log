@@ -1,0 +1,65 @@
+<script type="text/javascript">
+
+    let answers = [1,2,3,4,5];
+    console.log(solution(answers));
+    
+    function solution(answers) {
+        
+        var answer = [];
+        let a = [1, 2, 3, 4, 5];
+        let b = [2, 1, 2, 3, 2, 4, 2, 5];
+        let c = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+        let aSum = 0;
+        let bSum = 0;
+        let cSum = 0;
+        for(let i=0; i<answers.length; i++){    //문제를 맞추면 점수 증가
+            if( answers[i] === a[i%a.length] ){
+                aSum += 1;
+            }
+            if( answers[i] === b[i%b.length] ){
+                bSum += 1;
+            }
+            if(  answers[i] === c[i%c.length] ){
+                cSum += 1;
+            }
+        }
+
+        
+        //filter를 이용한 방법
+        /*aSum = answers.filter((val, i) => {
+            return val === a[i%a.length];
+        }).length;
+        bSum = answers.filter((val, i) => {
+            return val === b[i%b.length];
+        }).length;
+        cSum = answers.filter((val, i) => {
+            return val === c[i%c.length];
+        }).length;*/
+
+        /* aSum = answers.filter((val, i) => val === a[i%a.length] ).length;
+        bSum = answers.filter((val, i) => val === b[i%b.length] ).length;
+        cSum = answers.filter((val, i) => val === c[i%c.length] ).length; */
+
+        console.log(aSum);
+
+        let max = Math.max(aSum, bSum, cSum);   //세 수 의 맥스 값 구하기
+        
+        if(aSum === max) {
+            answer.push(1);
+        }
+        if(bSum === max) {
+            answer.push(2);
+        }
+        if(cSum === max) {
+            answer.push(3);
+        }
+
+        console.log(answer);
+
+        if( answer.length > 1 ){
+            answer.sort();
+        }
+
+        return answer;
+    }
+</script>

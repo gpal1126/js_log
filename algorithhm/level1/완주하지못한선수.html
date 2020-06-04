@@ -1,0 +1,18 @@
+<script type="text/javascript">
+
+    let p = ['mislav', 'stanko', 'mislav', 'ana'];
+    let c = ['stanko', 'ana', 'mislav'];
+
+    console.log(solution(p, c));
+
+    function solution(p, c){
+        p.sort();   //참가자 정렬
+        c.sort();   //완주자 정렬
+
+        for(let i=0; i<p.length; i++){
+            if( p[i] !== c[i] ){    //참가자와 완주자가 다른 값이면
+                return p[i];        //완주하지 못한 참가자 리턴
+            }
+        }
+    }
+</script>

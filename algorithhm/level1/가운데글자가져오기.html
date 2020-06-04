@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    console.log(solution('abcde'));
+    function solution(s) {
+        /* var answer = '';
+        let idx = s.length/2;
+        if( s.length % 2 === 0 ){  //짝수
+            answer = s.substr(idx-1, 2);
+        }else { //홀수
+            answer = s.substr(idx, 1);
+        }
+        return answer; */
+
+        return s.substr(Math.ceil(s.length / 2) - 1, s.length % 2 === 0 ? 2 : 1);
+    }
+</script>
