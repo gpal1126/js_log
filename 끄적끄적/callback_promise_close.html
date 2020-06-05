@@ -1,0 +1,107 @@
+
+
+<script>
+
+    /* delay( (a, callback) => {
+        setTimeout( callback, 1000);
+    });
+
+    delay( (a) => {
+        console.log();
+        delay( (a) => {
+            console.log('2');
+        })
+    }); */
+
+
+    console.log('callback을 이용한 비동기 처리');
+    function addCB(a, callback){
+        callback(a + a);
+    }
+
+    addCB(10, function(rst){
+        addCB(rst, function(rst2){
+            addCB(rst2, function(rst3){
+                console.log(rst3);
+            });
+        });
+    });
+
+    console.log('대기(Pending)');
+    /* new Promise();
+
+    new Promise(function(resolve, reject){
+
+    }); */
+
+    console.log('이행(Fulfilled');
+    new Promise(function(resolve, reject){
+        resolve();
+    });
+
+    console.log('실패(Rejected)');
+    new Promise(function(resolve, reject){
+        reject();
+    })
+
+    console.log('promise then 이용한 비동기 처리');
+    function add(a) {
+        return new Promise(resolve => {
+            setTimeout( () => {
+                resolve(a + a);
+            }, 1000);
+        });
+    }
+
+    //then을 이용한 결과 처리
+    console.log(1);
+    add(10)
+        .then( res => {
+            console.log(2);
+            console.log(res);
+        }).then( () => {
+            console.log(3);
+        });
+
+    console.log('promise then 이용한 비동기 처리 add 여러번 하기')
+    add(10)
+        .then(add)
+        .then(add)
+        .then(add)
+        .then(console.log);
+
+    /* console.log('go 함수를 이용한 비동기 처리')
+    _.go(add(10)
+        , add
+        , add
+        , add
+        , console.log); */
+
+    console.log('promise를 이용한 재귀함수');
+    let list = [2, 3, 4];
+    new Promise(function(resolve){
+        (function recur(res) {
+            if( list.length === res.length ) return resolve(res);
+            add(list[res.length]).then(function(val){
+                res.push(val);
+                recur(res);
+            });
+        })([]);
+    }).then(console.log);
+
+    /* console.log('go를 이용한 재귀함수');
+    _.go(list, 
+        _.map(add),
+        console.log); */
+
+    console.log('클로저 : 함수내에 함수를 선언하여 함수 외부에서 사용하기');
+    function getClosure(){
+        let a = '클로저';
+        return function() {
+            console.log(a);
+        }
+    }
+
+    let closure = getClosure();
+    closure();
+</script>

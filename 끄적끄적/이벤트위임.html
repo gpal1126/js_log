@@ -1,0 +1,31 @@
+<ul id="todo-app">
+    <li class="item">Walk the dog</li>
+    <li class="item">Pay bills</li>
+    <li class="item">Make dinner</li>
+    <li class="item">Code for one hour</li>
+</ul>
+
+<script>
+
+    //document.addEventListener('DOMContentLoaded', function(){
+    window.onload = function() {
+        let app = document.getElementById('todo-app');
+        let items = app.getElementsByClassName('item');
+
+        //아이템 갯수마다 이벤트 리스너를 생성,등록하여 요소의 개수가 무수히 많아질 때는 비효율적인 방법
+        for(let item of items){
+            item.addEventListener('click', function(){
+                alert('item:::'+item.innerHTML);
+            });
+        }
+
+        //이벤트 위임 : 전체 영역인 한개의 이벤트리스너를 생성하여 해당 요소에만 이벤트 발생 시킴
+        app.addEventListener('click', function(e){
+            console.log(e);
+            if( e.target && e.target.nodeName === 'LI' ){
+                let item = e.target;
+                alert('item:::'+item.innerHTML);
+            }
+        });
+    };
+</script>
