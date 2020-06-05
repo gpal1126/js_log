@@ -1,0 +1,33 @@
+<script type="text/javascript">
+
+    //두 정수 사이의 합구하기
+    a = 5;
+    b = 5;
+    console.log(solution(a, b));
+
+    function solution(a, b) {
+        let max = Math.max(a, b);
+        let min = Math.min(a, b);
+        /* if( max === min ){
+            return max;
+        }else {
+            //for문을 이용한 두 정수 사이에 값 더하기
+            // let sum = 0;
+            // for(let i=min; i<=max; i++){
+            //     sum += i;
+            // }
+            // return sum;
+
+            //2, 3, 4, 5 = 2+5 + 3+4 = 7 * 2
+            //3, 4, 5, 6, 7 = 3+7 + 4+6 + 5 = 10 + 10 + 5 = 10 * 2.5
+            let cnt = max - min + 1;    //두 정수의 사이의 값의 갯수
+            return (max + min) * (cnt/2);
+        }
+        */
+
+        //간결하게 줄인 것
+        let cnt = max - min + 1;    //두 정수의 사이의 값의 갯수
+        return max === min ? max : (max + min) * (cnt/2);
+
+    }
+</script>

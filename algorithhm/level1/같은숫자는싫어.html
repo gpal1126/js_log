@@ -1,0 +1,18 @@
+<script type="text/javascript">
+
+    //연속적인 숫자는 하나만 남기고 제거
+    arr = [4,4,4,3,3];
+    arr = [1, 1, 3, 3, 0, 1, 1];
+    console.log(solution(arr));
+
+    function solution(arr) {
+        /* return arr.filter(function(val, i){
+            if( arr[i] !== arr[i+1] ){  //현재 숫자와 다음 숫자가 같지 않으면 리턴
+                return arr;
+            }
+        }); */
+
+        //간결하게 줄인거
+        return arr.filter((val, i) => arr[i] !== arr[i+1] );
+    }
+</script>
