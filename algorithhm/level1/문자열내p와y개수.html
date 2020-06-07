@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+    //문자열 내 p와 y 개수
+    s = "pPoooyY";
+    //s = "Pyy";
+    //s = "aaa";
+    console.log(solution(s));
+    
+    console.log('p'.toUpperCase());
+    function solution(s) {
+
+        /* let pCnt = 0;
+        let yCnt = 0;
+        for(let i=0; i<s.length; i++){
+            if( s[i].toUpperCase() === 'P' ){
+                pCnt += 1;
+            }
+            if( s[i].toUpperCase() === 'Y' ){
+                yCnt += 1;
+            }
+        }
+
+        if( pCnt === yCnt ){
+            return true;
+        }else {
+            return false;
+        } */
+
+        //간결하게 풀이한 것
+        let pChk = s.match(/p/gi);
+        let yChk = s.match(/y/gi);
+        //console.log(pChk);
+
+        return (pChk === null ? true : pChk.length) === (yChk === null ? true : yChk.length);
+    }
+</script>

@@ -1,0 +1,22 @@
+<script type="text/javascript">
+
+    //문자열 내 p와 y 개수
+    let s = "Zbcdefg";
+    console.log(solution(s));
+    
+    function solution(s) {
+        /* 
+        s = s.split('');    //배열로 쪼개기
+        console.log(s);
+        s = s.sort();       //정렬하기
+        console.log(s);
+        s = s.reverse();    //역정렬하기
+        console.log(s);
+        s = s.join('');     //문자열로 합치기
+        console.log(s);
+        return s; 
+        */
+
+        return s.split('').sort().reverse().join('');
+    }
+</script>
