@@ -1,0 +1,16 @@
+<script type="text/javascript">
+
+    //문자열 내 p와 y 개수
+    let s = "a234";
+    console.log(solution(s));
+    
+    function solution(s) {
+        //console.log(s);
+        console.log([4, 6].includes(s.length));
+        
+        let reg = /^[0-9]+$/;   //문자가 숫자인지 체크하는 정규식
+        console.log(reg.test(s));   //정규식 테스트
+        //return [4, 6].includes(s.length) && !isNaN(s) ? true : false;     //isNaN 메서드는 테스트 실패....
+        return [4, 6].includes(s.length) && reg.test(s) ? true : false;
+    }
+</script>

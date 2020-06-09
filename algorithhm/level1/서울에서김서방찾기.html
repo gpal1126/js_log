@@ -1,0 +1,16 @@
+<script type="text/javascript">
+
+    //문자열 내 p와 y 개수
+    let seoul = ["Jane", "Kim", ""];
+    console.log(solution(seoul));
+    
+    function solution(seoul) {
+        let findKim;
+        seoul.filter((val, i) => {
+            if( val === 'Kim' ) findKim = i; 
+        });
+
+        //console.log(findKim);
+        return "김서방은 "+findKim+"에 있다";
+    }
+</script>
