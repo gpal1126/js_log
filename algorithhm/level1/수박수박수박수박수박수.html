@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+    //길이가 n인 수박...n 패턴 구하기
+    let n = 3;
+    console.log(solution(n));
+    
+    function solution(n) {
+        /* let char1 = "수"; 
+        let char2 = "박"; 
+        let word = '';
+        for(let i=0; i<n; i++){
+            ( i % 2 === 0 ) ? word += char1 : word += char2;
+        }
+        return word; */
+        
+        let word = '수박'; 
+
+        //return word.repeat(n).substring(0, n); //repeat과 substring 이용
+        return word.repeat(n).slice(0, n);     //repeat과 slice 이용
+    }
+</script>
