@@ -5,6 +5,26 @@
     console.log(solution(n));
     
     function solution(n) {
-        
+        let primeArr = [];
+        let primeCnt = 0;
+        for(let i=2; i<=n; i++){    //2~n까지 for
+            let primeChk = true;    //소수 체크 변수 선언
+
+            for(let j=2; j<i; j++){    //i까지 for문을 돌면서 소수인지 체크
+                if( i % j === 0 ){  //나눠어지면 false 주기
+                    primeChk = false;
+                }
+            }
+
+            if( primeChk ) {    //체크한 값이 소수이면 값 넣기
+                primeArr.push(i);
+                primeCnt += 1;
+            }
+        }
+
+        console.log('primeArr:::');
+        console.log(primeArr);
+        console.log('primeCnt:::'+primeCnt);
+        return primeCnt;
     }
 </script>
