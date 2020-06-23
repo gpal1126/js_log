@@ -1,0 +1,49 @@
+<script type="text/javascript">
+
+    //let s = "AB";           //1 BC
+    let s = "z";          //1 a
+    //let s = "a B c";      //1 e F d
+
+    let n = 4;
+
+    console.log(s.charAt(1))
+    console.log(solution(s, n));
+    function solution(s, n) {
+
+        //소문자 배열
+        let smallArr = new Array();
+        for(let i='a'.charCodeAt(0); i<='z'.charCodeAt(0); i++){
+            smallArr.push(String.fromCharCode(i));
+        }
+        console.log(smallArr);
+
+        //대문자 배열
+        let bigArr = new Array();
+        for(let i='A'.charCodeAt(0); i<='Z'.charCodeAt(0); i++){
+            bigArr.push(String.fromCharCode(i));
+        }
+        console.log(bigArr);
+
+        //입력 값 배열로 쪼갬
+        let sArr = s.split('');
+        let rst = '';   //결과 값
+
+        sArr.map( (val) => {
+            if( smallArr.includes(val) ){   //소문자이면 소문자 배열에서 찾기
+                let index = smallArr.indexOf(val);  //해딩 소문자의 index 값 
+                rst += smallArr[(index+n) % smallArr.length];   //해당 소문자로부터 n 번째 값(% 전체값 => 배열의 마지막 값이면 첫번째 값으로 로테이션)
+            }
+
+            if( bigArr.includes(val) ){     //대문자이면 대문자 배열에서 찾기
+                let index = bigArr.indexOf(val);    //해당 대문자의 index 값
+                rst += bigArr[(index+n) % bigArr.length];   //해당 대문자로부터 n 번째 값(% 전체값 => 배열의 마지막 값이면 첫벗째 값으로 로테이션)
+            }
+
+            if( val === ' ' ){  //공백 처리
+                rst += ' ';
+            }
+            
+        });
+        return rst;
+    }
+</script>
