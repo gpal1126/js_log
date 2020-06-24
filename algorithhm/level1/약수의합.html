@@ -1,0 +1,17 @@
+<script type="text/javascript">
+
+    //n의 약수의 합 구하기 
+    let n = 12;
+    console.log(solution(n));
+    function solution(n) {
+
+        //let numArr = new Array();
+        let sum = 0;
+        for(let i=1; i<=n; i++){
+            //n % i === 0 ? numArr.push(i) : null;
+            n % i === 0 ? sum += i : null;
+        }
+        //console.log(numArr);
+        return sum;
+    }
+</script>

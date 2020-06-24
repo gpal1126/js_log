@@ -1,0 +1,19 @@
+<script type="text/javascript">
+
+    //문자열 s의 짝수번째 알파벳은 대문자, 홀수번째 알파벳은 소문자로 리턴하기
+    let s = "try hello world";
+    console.log(solution(s));
+    console.log(s.toUpperCase())
+    console.log(s.toLowerCase())
+    function solution(s) {
+        let sArr = s.split('');
+
+        let rst='';
+        sArr.map((val, i) => {
+            //console.log(i);
+            ( i % 2 === 0 ) ? rst += val.toUpperCase() : rst += val.toLowerCase();
+        });
+
+        return rst;
+    }
+</script>
