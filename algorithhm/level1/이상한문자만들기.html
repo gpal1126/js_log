@@ -1,19 +1,27 @@
 <script type="text/javascript">
 
     //문자열 s의 짝수번째 알파벳은 대문자, 홀수번째 알파벳은 소문자로 리턴하기
+    //문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단
+    //첫글자는 인덱스 0부터 시작하여 짝수번째 알파벳으로 처리
+    //주의사항은 공백도 같이 처리해야된다. 무작정 split('')으로 나누면 안된다.
     let s = "try hello world";
     console.log(solution(s));
-    console.log(s.toUpperCase())
-    console.log(s.toLowerCase())
+    //console.log(s.toUpperCase())
+    //console.log(s.toLowerCase())
     function solution(s) {
-        let sArr = s.split('');
-
-        let rst='';
-        sArr.map((val, i) => {
-            //console.log(i);
-            ( i % 2 === 0 ) ? rst += val.toUpperCase() : rst += val.toLowerCase();
+        let strArr = s.split(' ');  //문장을 단어로 쪼갬([try], [hello], [world])
+        //console.log(strArr);
+        strArr.map((val, i) => {    //단어를 map으로 처리
+            strArr[i] = val.split('');  //단어를 음절로 쪼갬([t,r,y], [h,e,l,l,o], [w,o,r,l,d])
+            //console.log(strArr[i]);
+            strArr[i].map( (val2, i2, arr2) => { //음절을 map으로 처리
+                ( i2 % 2 === 0 ) ? arr2[i2] = val2.toUpperCase() : arr2[i2] = val2.toLowerCase(); //인덱스 값이 짝수면 대문자, 홀수면 소문자로 
+            });
+            strArr[i] = strArr[i].join(''); //음절을 다시 join으로 합침
+            //console.log(strArr[i]);
+            //return joinArr;
         });
 
-        return rst;
+        return strArr.join(' ');    //단어는 공백으로 줘서 join으로 합침
     }
 </script>
