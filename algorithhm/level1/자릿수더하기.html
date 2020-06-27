@@ -1,0 +1,23 @@
+<script type="text/javascript">
+
+    //자연수 N의 각 자릿수의 합을 구해 리턴하라
+    //1+2+3 = 6
+    let n = 123;
+    console.log(solution(n));
+    
+    function solution(n) {
+        /* n = String(n);      //문자열로 변경하여 배열로 만듬
+        let nArr = n.split('');
+        //console.log(nArr)
+        let sum = nArr.reduce((acc, cur) => {  //reduce를 이용하여 각 자라수 더함
+            cur = parseInt(cur);    //int로 변경
+            //console.log(cur)
+            return acc + cur;
+        }, 0);
+
+        return sum; */
+
+        //간결한 코드
+        return String(n).split('').reduce((acc, cur) => acc + parseInt(cur), 0);
+    }
+</script>
