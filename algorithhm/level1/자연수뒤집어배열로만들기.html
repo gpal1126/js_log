@@ -1,0 +1,15 @@
+<script type="text/javascript">
+
+    //자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴하라
+    //12345 -> [5,4,3,2,1]
+    let n = 12345;
+    console.log(solution(n));
+    
+    function solution(n) {
+        //let nArr = String(n).split(''); //문자열 배열로 변환
+        //return nArr.reverse().map(val => parseInt(val) );   //문자열 반대로 변환 후 각 요소 정수로 변경 
+        
+        //간결한 코드
+        return String(n).split('').reverse().map(val => parseInt(val) );
+    }
+</script>
