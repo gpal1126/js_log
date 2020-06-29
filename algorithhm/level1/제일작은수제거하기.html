@@ -1,0 +1,23 @@
+<script type="text/javascript">
+
+    //정수를 저장한 배열에서 가장 작은 수를 제거한 배열을 리턴하라
+    //한 수를 제거한 후 빈 배열이면 배열에 -1을 채워 리턴하라
+    //[4,3,2,1] -> [4,3,2]
+    //[10] -> [-1]
+    let arr = [4,3,2,1];
+    //arr = [10];
+    console.log(solution(arr));
+    
+    function solution(arr) {
+        /*
+        arr.sort((a, b) => b-a )    //큰 순서대로 정렬
+        .slice(0, arr.length-1)     //마지막 가장 작은 수를 제거
+        */
+        //큰 순서대로 정렬 후 가장 작은 수 제거
+        //return arr.sort((a, b) => b-a ).slice(0, arr.length-1).length > 0 ? arr.sort((a, b) => b-a ).slice(0, arr.length-1) : [-1] ;
+        
+        let minNum = Math.min.apply(null, arr);        //apply를 이용하여 배열 중 작은 수 구하기
+        //rstArr = arr.filter(val => val != minNum );   //작은 수를 제외한 배열 리턴
+        return arr.filter(val => val != minNum ).length > 0 ? arr.filter(val => val != minNum ) : [-1] ;      //가장 작은 수를 제외한 후 빈 값이 아니면 가장 작은 수를 제외한 배열 리턴, 빈 값이면 [-1] 리턴
+    }
+</script>
