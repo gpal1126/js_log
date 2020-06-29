@@ -1,0 +1,13 @@
+<script type="text/javascript">
+
+    //양의 정수 n이 어떤 양의 정수 x의 제곱인지 판별하여 제곱이라면 x+1의 제곱을 리턴하고 제곱이 아니면 -1을 리턴하라
+    //121 -> 144
+    //3 -> -1
+    let n = 121;
+    console.log(solution(n));
+    
+    function solution(n) {
+        let sqrtNum = Math.sqrt(n);     //n의 제곱근 구하기
+        return Number.isInteger(sqrtNum) ? Math.pow(sqrtNum+1, 2) : -1; //제곱근이 정수이면 n의 제곱근+1 의 제곱, 소수이면 -1 리턴
+    }
+</script>
