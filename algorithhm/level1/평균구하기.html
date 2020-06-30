@@ -1,0 +1,13 @@
+<script type="text/javascript">
+
+    //배열의 평균값을 리턴하라
+    //[1,2,3,4] -> 2.5
+    //[5,5] -> 5
+    let arr = [1,2,3,4];
+    //arr = [5,5];
+    console.log(solution(arr));
+    
+    function solution(arr){
+        return arr.reduce((cal, cur) => cal+cur) / arr.length;  //reduce를 이용하여 sum을 구하고, 배열의 length로 평균 값을 구함
+    }
+</script>
