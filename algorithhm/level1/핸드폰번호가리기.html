@@ -1,0 +1,20 @@
+<script type="text/javascript">
+
+    //전화번호 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하라
+    let phone_number = "01033334444";
+    //phone_number = "027778888";
+    console.log(solution(phone_number));
+    
+    function solution(phone_number){
+        /* 
+        let starLength = phone_number.substring(0, phone_number.length-4).length;   //*의 길이
+        let starStr = '';
+        for(let i=0; i<starLength; i++){
+            starStr += '*'; 
+        }
+        return starStr + phone_number.substring(phone_number.length-4); //*(별의길이만큼)+나머지 4자리 
+        */
+
+        return '*'.repeat(phone_number.length - 4) + phone_number.substr(-4);
+    }
+</script>
